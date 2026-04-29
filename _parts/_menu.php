@@ -14,11 +14,9 @@
           <li class="nav-item">
             <a class="nav-link " href="index.php">Home</a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="gmuscular.php">Grupo Muscular</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Exercício</a>
+            <a class="nav-link" href="exercicios.php">Exercício</a>
           </li>
           
         </ul>

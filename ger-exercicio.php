@@ -21,7 +21,7 @@
         <input type="text" name="nome" id="nome" class="form-control">
       </div>
       <div class="mt-3">
-        <a href="gmuscular.php" class="btn btn-outline-secondary">Cancelar</a>
+        <a href="exercicios.php" class="btn btn-outline-secondary">Cancelar</a>
         <button type="submit" class="btn btn-success">Salvar</button>
       </div>
     </form>
