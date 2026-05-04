@@ -1,7 +1,8 @@
 <?php
 
-class Exercicio extends CRUD
-{
+class Exercicio extends CRUD{
+
+    protected $table = "exercicio";
     private $id;
     private $nome;
     private $descricao;
