@@ -27,6 +27,12 @@
     <a href="ger-exercicio.php" class="btn btn-success">Novo Exercício</a>
 </div>
 
+<div class="mb-3 d-flex gap-2 justify-content-center">
+  <div class="col-md-6">
+    <input type="text" name="campo-filtro" id="campo-filtro" class="form-control" placeholder=" 🔎 Digite para pesquisar"
+    title="Pesquise pelo nome do exercício">
+  </div>
+  </div>
 <table class="table p-3">
   <thead>
     <tr>
@@ -55,5 +61,8 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+<script src="js/tb-interativa.js"></script>
+<script src="js/exercicios.js"></script>
 </body>
 </html>
