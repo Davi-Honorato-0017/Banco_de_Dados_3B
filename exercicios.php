@@ -33,7 +33,7 @@
     title="Pesquise pelo nome do exercício">
   </div>
   </div>
-<table class="table p-3">
+<table class="table p-3" id="tabela-exercicios">
   <thead>
     <tr>
       <th class="text-center">#</th>
@@ -55,6 +55,9 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+<div class="alert alert-info d-flex justify-content-center d-none" id="msg-vazio">
+  <i class="bi bi-info-circle"></i> Nenhum exercício encontrado para o filtro digitado.
+</div>
 </main>
 
 
