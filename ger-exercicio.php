@@ -30,6 +30,7 @@
     $edtexec = new Exercicio();
     $id = intval(filter_input(INPUT_GET,"id"));
     $exercicio = $edtexec->search('idexercicio', $id);
+    
   }
   ?>
   <main class="container" style="margin-top: 80px;">
@@ -65,7 +66,7 @@
         </div>
 
         <div class="mt-3">
-          <a href="gmuscular.php" class="btn btn-secondary" >Cancelar</a>
+          <a href="exercicios.php" class="btn btn-secondary" >Cancelar</a>
           <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
         </div>
       </form>
