@@ -66,7 +66,7 @@
         </div>
 
         <div class="mt-3">
-          <a href="exercicios.php" class="btn btn-secondary" >Cancelar</a>
+          <a href="aluno.php" class="btn btn-secondary" >Cancelar</a>
           <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
         </div>
       </form>
