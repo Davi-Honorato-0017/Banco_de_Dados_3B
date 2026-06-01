@@ -11,23 +11,24 @@ class Aluno extends CRUD
     private $celular;
     private $cidade;
     private $estado;
-    private $longradouro;
+    private $logradouro;
     private $bairro;
     private $cep;
 
 
     public function add()
     {
-        $sql = "INSERT INTO $this->table (nome, objetivo, sexo, nascimento, celular,longradouro, cidade, estado, bairro, cep) VALUES(:nome, :objetivo, :sexo, :nascimento, :celular, :longradouro, :cidade, :estado, :bairro, :cep);";
+        $sql = "INSERT INTO $this->table (nome, objetivo, sexo, nascimento, celular,logradouro, cidade, estado, bairro, cep) VALUES(:nome, :objetivo, :sexo, :nascimento, :celular, :logradouro, :cidade, :estado, :bairro, :cep);";
         $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(":id", $this->id, PDO::PARAM_STR);
         $stmt->bindParam(":nome", $this->nome, PDO::PARAM_STR);
         $stmt->bindParam(":objetivo", $this->objetivo, PDO::PARAM_STR);
         $stmt->bindParam(":sexo", $this->sexo, PDO::PARAM_STR);
         $stmt->bindParam(":nascimento", $this->nascimento, PDO::PARAM_STR);
-        $stmt->bindParam(":telefone", $this->telefone, PDO::PARAM_STR);
+        $stmt->bindParam(":telefone", $this->celular, PDO::PARAM_STR);
         $stmt->bindParam(":cidade", $this->cidade, PDO::PARAM_STR);
         $stmt->bindParam(":estado", $this->estado, PDO::PARAM_STR);
-        $stmt->bindParam(":longradouro", $this->longradouro, PDO::PARAM_STR);
+        $stmt->bindParam(":logradouro", $this->logradouro, PDO::PARAM_STR);
         $stmt->bindParam(":bairro", $this->bairro, PDO::PARAM_STR);
         $stmt->bindParam(":cep", $this->cep, PDO::PARAM_STR);
         return $stmt->execute();
@@ -35,17 +36,17 @@ class Aluno extends CRUD
 
     public function update()
     {
-        $sql = "UPDATE $this->table SET nome = :nome, objetivo = :objetivo, sexo = :sexo, nascimento = :nascimento, celular = :celular, longradouro = :longradouro, cidade = :cidade, estado = :estado, bairro = :bairro, cep = :cep WHERE idaluno = :id;";
+        $sql = "UPDATE $this->table SET nome = :nome, objetivo = :objetivo, sexo = :sexo, nascimento = :nascimento, celular = :celular, logradouro = :logradouro, cidade = :cidade, estado = :estado, bairro = :bairro, cep = :cep WHERE idaluno = :id;";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
         $stmt->bindParam(":nome", $this->nome, PDO::PARAM_STR);
         $stmt->bindParam(":objetivo", $this->objetivo, PDO::PARAM_STR);
         $stmt->bindParam(":sexo", $this->sexo, PDO::PARAM_STR);
         $stmt->bindParam(":nascimento", $this->nascimento, PDO::PARAM_STR);
-        $stmt->bindParam(":telefone", $this->telefone, PDO::PARAM_STR);
+        $stmt->bindParam(":celular", $this->celular, PDO::PARAM_STR);
         $stmt->bindParam(":cidade", $this->cidade, PDO::PARAM_STR);
         $stmt->bindParam(":estado", $this->estado, PDO::PARAM_STR);
-        $stmt->bindParam(":longradouro", $this->longradouro, PDO::PARAM_STR);
+        $stmt->bindParam(":logradouro", $this->logradouro, PDO::PARAM_STR);
         $stmt->bindParam(":bairro", $this->bairro, PDO::PARAM_STR);
         $stmt->bindParam(":cep", $this->cep, PDO::PARAM_STR);
         return $stmt->execute();
@@ -115,13 +116,13 @@ class Aluno extends CRUD
     {
         $this->estado = $estado;
     }
-    public function getLongradouro()
+    public function getLogradouro()
     {
-        return $this->longradouro;
+        return $this->logradouro;
     }
-    public function setLongradouro($longradouro)
+    public function setLogradouro($logradouro)
     {
-        $this->longradouro = $longradouro;
+        $this->logradouro = $logradouro;
     }
     public function getBairro()
     {

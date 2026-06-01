@@ -39,7 +39,6 @@
     </div>
     <div class="card">
       <form action="db-exercicio.php" method="post" class="row p-4 g3 mt-3">
-        <input type="hidden" name="id" value="<?= $exercicio->idexercicio; ?>">
         <div class="col-12">
           <label for="nome" class="form-label">Nome</label>
           <input type="text" name="nome" id="nome" class="form-control" value="<?= $exercicio->nome ?? null; ?>">
