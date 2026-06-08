@@ -11,7 +11,7 @@ if (filter_has_var(INPUT_POST, "btnGravar")) {
     $aluno->setNome(filter_input(INPUT_POST, "nome", FILTER_SANITIZE_STRING));
     $aluno->setSexo(filter_input(INPUT_POST, "sexo", FILTER_SANITIZE_STRING));
     $aluno->setDataNascimento(filter_input(INPUT_POST, "nascimento", FILTER_SANITIZE_STRING));
-    $aluno->setCelular(filter_input(INPUT_POST, "celular", FILTER_SANITIZE_NUMBER_INT));  
+    $aluno->setCelular(filter_input(INPUT_POST, "celular", FILTER_SANITIZE_NUMBER_INT));
     $aluno->setObjetivo(filter_input(INPUT_POST, "objetivo", FILTER_SANITIZE_STRING));
     $aluno->setCidade(filter_input(INPUT_POST, "cidade", FILTER_SANITIZE_STRING));
     $aluno->setEstado(filter_input(INPUT_POST, "estado", FILTER_SANITIZE_STRING));
@@ -24,17 +24,17 @@ if (filter_has_var(INPUT_POST, "btnGravar")) {
         if ($aluno->update()) {
             header("Location: alunos.php");
         }
-            } else {
+    } else {
 
-        
+
 
         if ($aluno->add()) {
             header("Location: alunos.php");
         }
     }
-}elseif (filter_has_var(INPUT_POST, "btn-deletar")) {
+} elseif (filter_has_var(INPUT_POST, "btn-deletar")) {
     $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
-    if ($aluno->delete('idaluno',$id)) {
+    if ($aluno->delete('idaluno', $id)) {
         header("Location: alunos.php");
     }
 }

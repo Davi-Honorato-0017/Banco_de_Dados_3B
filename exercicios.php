@@ -54,8 +54,8 @@
               <i class="bi bi-pencil-square"></i>
             </a>
             <form action="db-exercicio.php" method="post">
-              <input type="hidden" name="id" value="<?= $exec->idexercicio?? null ?>">
-              <button type="submit" class="btn btn-sm btn-outline-danger" onclick=" confirm('Deseja excluir o registro?')" name="btn-deletar">
+              <input type="hidden" name="id" value="<?= $exec->idexercicio ?? null ?>">
+              <button type="submit" class="btn btn-sm btn-outline-danger" onclick="confirm('Deseja excluir o registro?')" name="btn-deletar">
                 <i class="bi bi-trash"></i>
               </button>
             </form>

@@ -19,11 +19,11 @@ class Exercicio extends CRUD{
     public function update(){
         $sql = "UPDATE $this->table SET nome = :nome, descricao = :descricao, grupo_muscular = :grupo_muscular WHERE idexercicio = :id;";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":id",$this->id, PDO::PARAM_INT);
         $stmt->bindParam(":nome", $this->nome, PDO::PARAM_STR);
         $stmt->bindParam(":descricao", $this->descricao, PDO::PARAM_STR);
-        $stmt->bindParam(":grupo_muscular", $this->grupoMuscular, PDO::PARAM_STR);
-        return $stmt->execute();    
+        $stmt->bindParam(":grupo_muscular",$this->grupoMuscular,PDO::PARAM_STR);
+        return $stmt->execute();
     }
 
     public function getId(){

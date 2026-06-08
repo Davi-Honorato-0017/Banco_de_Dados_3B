@@ -30,7 +30,6 @@
     $edtexec = new Exercicio();
     $id = intval(filter_input(INPUT_GET,"id"));
     $exercicio = $edtexec->search('idexercicio', $id);
-    
   }
   ?>
   <main class="container" style="margin-top: 80px;">
@@ -39,6 +38,7 @@
     </div>
     <div class="card">
       <form action="db-exercicio.php" method="post" class="row p-4 g3 mt-3">
+        <input type="hidden" name="id" value="<?= $exercicio->idexercicio ?? null; ?>">
         <div class="col-12">
           <label for="nome" class="form-label">Nome</label>
           <input type="text" name="nome" id="nome" class="form-control" value="<?= $exercicio->nome ?? null; ?>">
@@ -65,7 +65,7 @@
         </div>
 
         <div class="mt-3">
-          <a href="aluno.php" class="btn btn-secondary" >Cancelar</a>
+          <a href="exercicios.php" class="btn btn-secondary" >Cancelar</a>
           <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
         </div>
       </form>
