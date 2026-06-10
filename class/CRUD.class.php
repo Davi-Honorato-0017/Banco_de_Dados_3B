@@ -33,4 +33,15 @@ abstract class CRUD{
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             return $stmt->execute();
     }
+
+    public function iniciarTransacao(){
+        $this->db->beginTransaction();
+    }
+
+    public function confirmaTransacao(){
+        $this->db->commit();
+    }
+    public function cancelaTransacao(){
+        $this->db->rollBack();
+    }
 }

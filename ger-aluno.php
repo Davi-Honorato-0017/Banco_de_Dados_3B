@@ -85,7 +85,7 @@
               <label for="confirma_senha" class="form-label">Confirmar Senha</label>
               <div class="input-group">
                 <input type="password" name="confirma_senha" id="confirma_senha" class="form-control" required>
-                <button type="button" class="btn btn-secondary" id="toggleSenha"><i class="bi bi-eye"></i></button>
+                <button type="button" class="btn btn-secondary" id="toggleConfirmaSenha"><i class="bi bi-eye"></i></button>
               </div>
             </div>
           </div>

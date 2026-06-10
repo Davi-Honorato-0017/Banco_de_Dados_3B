@@ -3,7 +3,10 @@
 class Aluno extends CRUD
 {
     protected $table = "aluno";
-    private int $id;
+    protected $fkUsuario;
+    protected int $id;
+    protected $email;
+    private int $usuario;
     private $nome;
     private $objetivo;
     private $sexo;
@@ -18,9 +21,10 @@ class Aluno extends CRUD
 
     public function add()
     {
-        $sql = "INSERT INTO $this->table (nome, objetivo, sexo, nascimento, celular,logradouro, cidade, estado, bairro, cep) VALUES(:nome, :objetivo, :sexo, :nascimento, :celular, :logradouro, :cidade, :estado, :bairro, :cep);";
+        $sql = "INSERT INTO $this->table (id, fk_usuario, nome, objetivo, sexo, nascimento, celular, logradouro, cidade, estado, bairro, cep) VALUES(:id, :fk_usuario, :nome, :objetivo, :sexo, :nascimento, :celular, :logradouro, :cidade, :estado, :bairro, :cep);";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(":id", $this->id, PDO::PARAM_STR);
+        $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":fk_usuario", $this->fkUsuario, PDO::PARAM_INT);
         $stmt->bindParam(":nome", $this->nome, PDO::PARAM_STR);
         $stmt->bindParam(":objetivo", $this->objetivo, PDO::PARAM_STR);
         $stmt->bindParam(":sexo", $this->sexo, PDO::PARAM_STR);
@@ -36,9 +40,11 @@ class Aluno extends CRUD
 
     public function update()
     {
-        $sql = "UPDATE $this->table SET nome = :nome, objetivo = :objetivo, sexo = :sexo, nascimento = :nascimento, celular = :celular, logradouro = :logradouro, cidade = :cidade, estado = :estado, bairro = :bairro, cep = :cep WHERE idaluno = :id;";
+        $sql = "UPDATE $this->table SET id = :id, nome = :nome, objetivo = :objetivo, sexo = :sexo, nascimento = :nascimento, celular = :celular, logradouro = :logradouro, cidade = :cidade, estado = :estado, bairro = :bairro, cep = :cep WHERE usuario = :usuario;";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":email", $this->email, PDO::PARAM_STR);
+        $stmt->bindParam(":usuario", $this->usuario, PDO::PARAM_INT);
         $stmt->bindParam(":nome", $this->nome, PDO::PARAM_STR);
         $stmt->bindParam(":objetivo", $this->objetivo, PDO::PARAM_STR);
         $stmt->bindParam(":sexo", $this->sexo, PDO::PARAM_STR);
@@ -59,6 +65,31 @@ class Aluno extends CRUD
     public function setId($id)
     {
         $this->id = (int) $id;
+    }
+    public function getFkUsuario()
+    {
+        return $this->fkUsuario;
+    }   
+    public function setFkUsuario($fkUsuario)
+    {
+        $this->fkUsuario = (int) $fkUsuario;
+    }
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+    public function setUsuario($usuario)
+    {
+        $this->usuario = (int) $usuario;
     }
     public function getNome()
     {

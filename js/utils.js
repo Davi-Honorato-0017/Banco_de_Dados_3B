@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
 
     // Busca de cep automática (viacep)
+     // --- 2. BUSCA DE CEP AUTOMÁTICA (Fetch API ViaCEP) ---
     if (campoCep) {
         campoCep.addEventListener('blur', async () => {
             let cep = campoCep.value.replace(/\D/g, '');
@@ -37,6 +38,40 @@ document.addEventListener('DOMContentLoaded',()=>{
                 console.error("Falha na requisição de endereço: ", erro);
             }
         });
+    }
+
+    if (senha && confirma && btnSalvar){
+        const configurarToggleSenha = (btnId, inputId) => {
+            const btn = document.querySelector(btnId);
+            if(!btn) return;
+            const input = document.querySelector(inputId);
+            //#senha ou #confirma_senha
+            const icone = btn.querySelector('i');
+            btn.addEventListener('click', ()=>{
+                const tipo = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', tipo);
+                icone.classList.toggle('bi-eye');
+                icone.classList.toggle('bi-eye-slash');
+            });
+        };
+        configurarToggleSenha('#toggleSenha', '#senha');
+        configurarToggleSenha('#toggleConfirmaSenha', '#confirma_senha');
+        
+        const validar = ()=> {
+            const erro = senha.value ==="" || senha.value !== confirma.value;
+            confirma.style.borderColor = erro ? 'red' : 'green';
+            btnSalvar.disabled = erro;
+        };
+        senha.addEventListener('input', validar);
+        confirma.addEventListener('input', validar);
+    }
+
+    const alerta = document.querySelector('#msgAlerta');
+    if(alerta){
+        setTimeout (() =>{
+            const bsAlert = new bootstrap.Alert(alerta);
+            bsAlert.close();
+        }, 4000);
     }
 
 });
